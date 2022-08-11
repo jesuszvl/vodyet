@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Expense from "../components/Expense/Expense";
 import History from "../components/History/History";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 
 export default function Home() {
   return (
@@ -16,8 +16,10 @@ export default function Home() {
           <div className={styles.header}>
             <h1 className={styles.title}>EXPENSE CONTROL</h1>
           </div>
-          <Expense />
-          <History />
+          <div className={styles.content}>
+            <Expense />
+            <History />
+          </div>
         </div>
       </main>
     </div>

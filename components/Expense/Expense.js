@@ -1,4 +1,4 @@
-import styles from "./Expense.module.css";
+import styles from "./Expense.module.scss";
 
 export default function Expense() {
   return (
@@ -7,7 +7,13 @@ export default function Expense() {
         <input type="date" className={styles.input} />
       </div>
       <div className={styles.section}>
-        <input className={styles.input} placeholder="CATEGORY" />
+        <select className={styles.input} name="category" id="categories">
+          <option value="vivienda">VIVIENDA</option>
+          <option value="alimentos">ALIMENTACION</option>
+          <option value="servicios">SERVICIOS Y SUSCRIPCIONES</option>
+          <option value="transporte">TRANSPORTE</option>
+          <option value="ocio">OCIO Y ENTRETENIMIENTO</option>
+        </select>
       </div>
       <div className={styles.section}>
         <input className={styles.input} placeholder="AMMOUNT" />
@@ -15,7 +21,7 @@ export default function Expense() {
       <div className={styles.section}>
         <input className={styles.input} placeholder="DESCRIPTION" />
       </div>
-      <button className={styles.add}>ADD EXPENSE</button>
+      <button className={styles.add}>ADD</button>
     </div>
   );
 }

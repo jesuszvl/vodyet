@@ -1,9 +1,11 @@
+@import "../../styles/colors.constants";
+
 .record {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 5px 5px;
-  border-bottom: 2px solid darkgray;
+  gap: 10px;
 }
 
 .date {
@@ -12,8 +14,7 @@
   justify-content: center;
   align-items: center;
   background-color: white;
-  width: 60px;
-  min-width: 60px;
+  min-width: 50px;
   border: 1px darkgray solid;
   border-radius: 5px;
 }
@@ -28,8 +29,12 @@
   border-radius: 3px 3px 0px 0px;
 }
 
+.month {
+  font-size: 12px;
+}
+
 .day {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -38,8 +43,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   width: 100%;
-  vertical-align: center;
+
+  border: 1px darkgray solid;
+  border-radius: 5px;
+  background-color: $medium-dark;
+
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 600;
+
+  color: lightgray;
 }
 
 .ammount {
@@ -47,7 +62,7 @@
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
   float: right;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 10px;
@@ -55,4 +70,26 @@
   border-radius: 5px;
   min-width: 100px;
   max-width: 140px;
+
+  &.vivienda {
+    background-color: $vivienda;
+  }
+
+  &.alimentos {
+    background-color: $alimentos;
+  }
+
+  &.transporte {
+    background-color: $transporte;
+  }
+
+  &.servicios {
+    background-color: $servicios;
+    color: white;
+  }
+
+  &.ocio {
+    background-color: $ocio;
+    color: white;
+  }
 }

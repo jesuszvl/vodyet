@@ -1,6 +1,14 @@
-import styles from "./Record.module.css";
+import styles from "./Record.module.scss";
+import classNames from "classnames";
 
-export default function Record({ description, ammount, year, day, month }) {
+export default function Record({
+  description,
+  ammount,
+  year,
+  day,
+  month,
+  category,
+}) {
   return (
     <div className={styles.record}>
       <div className={styles.date}>
@@ -9,7 +17,9 @@ export default function Record({ description, ammount, year, day, month }) {
         <span className={styles.month}>{month}</span>
       </div>
       <span className={styles.description}>{description}</span>
-      <span className={styles.ammount}>{ammount}</span>
+      <span className={classNames(styles["ammount"], styles[category])}>
+        {ammount}
+      </span>
     </div>
   );
 }

@@ -1,0 +1,110 @@
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1080px;
+$breakpoint-xl: 1300px;
+$breakpoint-ipad-pro: 1366px;
+
+$screen-xs-max: $breakpoint-sm - 1;
+
+$screen-sm-min: $breakpoint-sm;
+$screen-sm-max: $breakpoint-md - 1;
+
+$screen-md-min: $breakpoint-md;
+$screen-md-max: $breakpoint-lg - 1;
+
+$screen-lg-min: $breakpoint-lg;
+$screen-lg-max: $breakpoint-xl - 1;
+
+$screen-xl-min: $breakpoint-xl;
+
+$screen-tablet-landscape-max: $breakpoint-ipad-pro;
+
+@mixin device_xs_only {
+  @media (max-width: $screen-xs-max) {
+    @content;
+  }
+}
+
+@mixin device_sm {
+  @media (min-width: $screen-sm-min) {
+    @content;
+  }
+}
+
+@mixin device_sm_only {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    @content;
+  }
+}
+
+@mixin device_sm_and_below {
+  @media (max-width: $screen-sm-max) {
+    @content;
+  }
+}
+
+@mixin device_md {
+  @media (min-width: $screen-md-min) {
+    @content;
+  }
+}
+
+@mixin device_md_only {
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    @content;
+  }
+}
+
+@mixin device_md_and_below {
+  @media (max-width: $screen-md-max) {
+    @content;
+  }
+}
+
+@mixin device_lg {
+  @media (min-width: $screen-lg-min) {
+    @content;
+  }
+}
+
+@mixin device_lg_and_below {
+  @media (max-width: $screen-lg-max) {
+    @content;
+  }
+}
+
+@mixin device_tablet_landscape_and_below {
+  @media (max-width: $screen-tablet-landscape-max) {
+    @content;
+  }
+}
+
+@mixin device_xl {
+  @media (min-width: $screen-xl-min) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include device_sm {
+    max-width: 540px;
+  }
+
+  @include device_md {
+    max-width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+}
