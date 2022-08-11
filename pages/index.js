@@ -5,23 +5,21 @@ import styles from "../styles/Home.module.scss";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
         <title>CONTROL DE GASTOS</title>
         <meta name="description" content="frontbudget" />
       </Head>
 
       <main>
-        <div className={styles.container}>
-          <div className={styles.header}>
-            <h1 className={styles.title}>EXPENSE CONTROL</h1>
-          </div>
-          <div className={styles.content}>
-            <Expense />
-            <History />
-          </div>
+        <div className={styles.header}>
+          <h1 className={styles.title}>CONTROL DE GASTOS</h1>
+        </div>
+        <div className={styles.content}>
+          <Expense />
+          <History />
         </div>
       </main>
-    </div>
+    </>
   );
 }

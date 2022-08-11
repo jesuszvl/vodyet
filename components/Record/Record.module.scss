@@ -4,8 +4,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 5px 5px;
-  gap: 10px;
+
+  padding: 8px 8px;
+  gap: 8px;
+  border-bottom: 1px solid darkgray;
 }
 
 .date {
@@ -13,9 +15,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  min-width: 40px;
+
   background-color: white;
-  min-width: 50px;
-  border: 1px darkgray solid;
+
+  border: 1px solid $medium-dark;
   border-radius: 5px;
 }
 
@@ -34,7 +39,7 @@
 }
 
 .day {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -46,13 +51,12 @@
 
   width: 100%;
 
-  border: 1px darkgray solid;
   border-radius: 5px;
   background-color: $medium-dark;
 
   font-size: 14px;
   font-style: italic;
-  font-weight: 600;
+  font-weight: bold;
 
   color: lightgray;
 }
@@ -66,7 +70,6 @@
   float: right;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 10px;
-  border: 1px darkgray solid;
   border-radius: 5px;
   min-width: 100px;
   max-width: 140px;

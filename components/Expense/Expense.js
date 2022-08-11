@@ -16,12 +16,12 @@ export default function Expense() {
         </select>
       </div>
       <div className={styles.section}>
-        <input className={styles.input} placeholder="AMMOUNT" />
+        <input className={styles.input} placeholder="MONTO" />
       </div>
       <div className={styles.section}>
         <input className={styles.input} placeholder="DESCRIPTION" />
       </div>
-      <button className={styles.add}>ADD</button>
+      <button className={styles.add}>AGREGAR +</button>
     </div>
   );
 }
