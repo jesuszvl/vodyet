@@ -96,7 +96,7 @@ export default function History() {
   return (
     <div className={styles.history}>
       {history.map((record, i) => {
-        return <Record {...record} />;
+        return <Record key={i} {...record} />;
       })}
     </div>
   );
