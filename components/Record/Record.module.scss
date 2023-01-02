@@ -48,17 +48,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   width: 100%;
 
   border-radius: 5px;
-  background-color: $medium-dark;
+  background-color: $background-gray;
 
-  font-size: 14px;
-  font-style: italic;
+  font-size: 18px;
   font-weight: bold;
 
-  color: lightgray;
+  color: black;
 }
 
 .ammount {
@@ -71,14 +71,15 @@
   background-color: rgba(255, 255, 255, 0.5);
   padding: 10px;
   border-radius: 5px;
-  min-width: 100px;
-  max-width: 140px;
+  border: 1px black solid;
+  min-width: 80px;
+  max-width: 120px;
 
   &.vivienda {
     background-color: $vivienda;
   }
 
-  &.alimentos {
+  &.comida {
     background-color: $alimentos;
   }
 
@@ -93,6 +94,10 @@
 
   &.ocio {
     background-color: $ocio;
+    color: white;
+  }
+  &.deudas {
+    background-color: black;
     color: white;
   }
 }

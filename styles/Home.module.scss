@@ -2,12 +2,13 @@
 @import "colors.constants";
 
 .header {
-  background-color: $light-dark;
+  background-color: $main-blue;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 60px;
+  font-family: "Mismo", sans-serif;
 }
 
 .title {

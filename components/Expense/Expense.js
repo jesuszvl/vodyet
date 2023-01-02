@@ -9,10 +9,11 @@ export default function Expense() {
       <div className={styles.section}>
         <select className={styles.input} name="category" id="categories">
           <option value="vivienda">VIVIENDA</option>
-          <option value="alimentos">ALIMENTACION</option>
-          <option value="servicios">SERVICIOS Y SUSCRIPCIONES</option>
+          <option value="comida">COMIDA</option>
+          <option value="servicios">SERVICIOS</option>
           <option value="transporte">TRANSPORTE</option>
-          <option value="ocio">OCIO Y ENTRETENIMIENTO</option>
+          <option value="ocio">OCIO</option>
+          <option value="deudas">DEUDAS</option>
         </select>
       </div>
       <div className={styles.section}>

@@ -28,12 +28,12 @@ export default function History() {
       category: "ocio",
     },
     {
-      description: "Ley Mandado",
+      description: "Mandado",
       ammount: "$866.04",
       year: 2022,
       day: 8,
       month: "AGO",
-      category: "alimentos",
+      category: "comida",
     },
     {
       description: "OXXO",
@@ -41,7 +41,7 @@ export default function History() {
       year: 2022,
       day: 8,
       month: "AGO",
-      category: "alimentos",
+      category: "comida",
     },
     {
       description: "Renta",
@@ -81,15 +81,15 @@ export default function History() {
       year: 2022,
       day: 7,
       month: "AGO",
-      category: "alimentos",
+      category: "comida",
     },
     {
-      description: "Garrafon de Agua",
+      description: "Garrafon",
       ammount: "$16.00",
       year: 2022,
       day: 7,
       month: "AGO",
-      category: "alimentos",
+      category: "comida",
     },
   ];
 
