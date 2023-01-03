@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Control de Gastos</title>
+        <title>VODYET</title>
         <meta name="description" content="frontbudget" />
         <link
           href="https://fonts.cdnfonts.com/css/mismo"
@@ -19,15 +19,20 @@ export default function Home() {
         ></link>
       </Head>
 
-      <main>
+      <div className={styles.wrapper}>
         <div className={styles.header}>
           <h1 className={styles.title}>VODYET</h1>
         </div>
         <div className={styles.content}>
-          <Expense />
           <History />
         </div>
-      </main>
+
+        <div className={styles.footer}>
+          <div className={styles["button-container"]}>
+            <button className={styles.button}>Nuevo Gasto</button>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

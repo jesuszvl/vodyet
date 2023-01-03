@@ -1,6 +1,12 @@
 @import "breakpoints";
 @import "colors.constants";
 
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
   background-color: $main-blue;
   display: flex;
@@ -9,6 +15,8 @@
   width: 100%;
   height: 60px;
   font-family: "Mismo", sans-serif;
+  position: sticky;
+  top: 0;
 }
 
 .title {
@@ -17,12 +25,38 @@
 }
 
 .content {
-  display: flex;
-  gap: 20px;
-  padding: 10px;
-  flex-direction: column;
+  background-color: $background-gray;
+  flex: 1;
+  overflow: auto;
+  padding-bottom: 77px;
+}
 
-  @include device_md {
-    flex-direction: row;
-  }
+.button-container {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+
+  background-color: $main-blue;
+}
+
+.button {
+  all: unset;
+  color: black;
+  background-color: $button-orange;
+  padding: 10px 16px;
+  border-radius: 40px;
+  text-align: center;
+
+  height: 25px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: $button-orange-hover;
+  cursor: pointer;
 }
