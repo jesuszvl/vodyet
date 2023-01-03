@@ -13,7 +13,7 @@ export default function History() {
       description: "TELNOR",
       ammount: "$549.00",
       date: new Date(),
-      category: "vivienda",
+      category: "servicios",
     },
     {
       description: "Cigarros",
@@ -50,6 +50,12 @@ export default function History() {
       ammount: "$500.00",
       date: new Date(),
       category: "ocio",
+    },
+    {
+      description: "Prestamo",
+      ammount: "$1,365.49",
+      date: new Date(),
+      category: "deudas",
     },
     {
       description: "Didi",

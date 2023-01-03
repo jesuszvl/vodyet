@@ -3,76 +3,19 @@
 .record {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
-
+  gap: 8px;
   height: 60px;
   border-bottom: 1px solid black;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
-.date {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  min-width: 40px;
-
-  background-color: white;
-
-  border: 1px solid $medium-dark;
-  border-radius: 5px;
-}
-
-.year {
-  background-color: black;
-  color: white;
-  font-size: 10px;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-  border-radius: 3px 3px 0px 0px;
-}
-
-.month {
-  font-size: 12px;
-}
-
-.day {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.description {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  width: 100%;
-
-  border-radius: 5px;
-  background-color: $background-gray;
-
-  font-size: 14px;
-  font-weight: bold;
-
-  color: #1e1e1e;
-}
-
-.ammount {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  font-size: 16px;
-  float: right;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px black solid;
-  min-width: 80px;
-  max-width: 120px;
+.icon {
+  height: 44px;
+  width: 44px;
+  border-radius: 44px;
 
   &.vivienda {
     background-color: $vivienda;
@@ -95,8 +38,25 @@
     background-color: $ocio;
     color: white;
   }
+
   &.deudas {
     background-color: black;
     color: white;
   }
+}
+
+.description {
+  font-size: 16px;
+
+  color: #1e1e1e;
+  flex-grow: 3;
+}
+
+.ammount {
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+
+  color: #1e1e1e;
+  text-align: right;
 }
