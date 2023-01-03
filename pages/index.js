@@ -1,6 +1,6 @@
 import Head from "next/head";
-import History from "../components/History/History";
-import styles from "../styles/Home.module.scss";
+import History from "../src/components/History/History";
+import styles from "../src/styles/Home.module.scss";
 
 export default function Home() {
   return (
@@ -16,6 +16,7 @@ export default function Home() {
           href="https://fonts.cdnfonts.com/css/helvetica-neue-9"
           rel="stylesheet"
         ></link>
+        <link rel="icon" href="/vodyet_logo.png" />
       </Head>
 
       <div className={styles.wrapper}>
