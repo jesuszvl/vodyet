@@ -5,9 +5,8 @@
   flex-direction: row;
   justify-content: space-between;
 
-  padding: 8px 8px;
-  gap: 8px;
-  border-bottom: 1px solid darkgray;
+  height: 60px;
+  border-bottom: 1px solid black;
 }
 
 .date {
@@ -55,10 +54,10 @@
   border-radius: 5px;
   background-color: $background-gray;
 
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
 
-  color: black;
+  color: #1e1e1e;
 }
 
 .ammount {

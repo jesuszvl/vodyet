@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Expense from "../components/Expense/Expense";
 import History from "../components/History/History";
 import styles from "../styles/Home.module.scss";
 
@@ -26,10 +25,9 @@ export default function Home() {
         <div className={styles.content}>
           <History />
         </div>
-
         <div className={styles.footer}>
           <div className={styles["button-container"]}>
-            <button className={styles.button}>Nuevo Gasto</button>
+            <button className={styles.button}>NEW</button>
           </div>
         </div>
       </div>
