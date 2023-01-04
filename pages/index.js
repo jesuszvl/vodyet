@@ -27,6 +27,11 @@ export default function Home() {
           href="https://fonts.cdnfonts.com/css/outfit"
           rel="stylesheet"
         ></link>
+        <link
+          href="https://fonts.cdnfonts.com/css/monesque"
+          rel="stylesheet"
+        ></link>
+
         <link rel="icon" href="/vodyet_logo.png" />
       </Head>
 
@@ -65,7 +70,7 @@ export default function Home() {
         <div className={styles.footer}>
           <div className={styles["button-container"]}>
             <button className={styles.button} onClick={onButtonClick}>
-              {login ? "NEW" : "LOGIN"}
+              {login ? "NEW EXPENSE" : "LOGIN"}
             </button>
           </div>
         </div>

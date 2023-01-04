@@ -33,9 +33,9 @@
 }
 
 .description {
-  font-family: "Outfit", sans-serif;
   font-size: 20px;
   padding: 0px 16px;
+  text-align: justify;
 }
 
 .button-container {
@@ -64,6 +64,7 @@
   font-weight: 700;
   margin: 16px;
   cursor: pointer;
+  font-family: "Mismo", sans-serif;
 }
 
 .button:hover {
