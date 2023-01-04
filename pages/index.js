@@ -40,7 +40,7 @@ export default function Home() {
           ) : (
             <div className={styles.description}>
               <p>
-                Whether you're looking to track your budget, save money, or
+                Whether you&apos;re looking to track your budget, save money, or
                 simply get a better understanding of where your money is going,
                 Vodyet has you covered.
               </p>
@@ -56,7 +56,7 @@ export default function Home() {
                 a complete picture of your financial health.
               </p>
               <p>
-                With Vodyet, it's never been easier to take control of your
+                With Vodyet, it&apos;s never been easier to take control of your
                 finances and live the life you want.
               </p>
             </div>
