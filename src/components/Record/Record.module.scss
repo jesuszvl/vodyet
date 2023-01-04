@@ -16,6 +16,11 @@
   height: 44px;
   width: 44px;
   border-radius: 44px;
+  border: 1px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &.vivienda {
     background-color: $vivienda;
@@ -31,7 +36,6 @@
 
   &.servicios {
     background-color: $servicios;
-    color: white;
   }
 
   &.ocio {
@@ -40,8 +44,9 @@
   }
 
   &.deudas {
-    background-color: black;
+    background-color: $deudas;
     color: white;
+    border-color: white;
   }
 }
 
