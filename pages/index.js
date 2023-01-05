@@ -16,12 +16,10 @@ export default function Home() {
     <div className={styles.wrapper}>
       <Header />
       <div className={styles.content}>{login ? <History /> : <Login />}</div>
-      <div className={styles.footer}>
-        <ActionButton
-          text={login ? "NEW EXPENSE" : "LOGIN"}
-          onButtonClick={onButtonClick}
-        />
-      </div>
+      <ActionButton
+        text={login ? "NEW EXPENSE" : "LOGIN"}
+        onButtonClick={onButtonClick}
+      />
     </div>
   );
 }
