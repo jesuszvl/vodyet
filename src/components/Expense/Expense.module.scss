@@ -29,13 +29,13 @@
   font-size: 18px;
   font-weight: 700;
   color: black;
-  background-color: $button-orange;
+  background-color: $button-color;
   width: 100%;
   border: 1px black solid;
   border-radius: 5px;
 }
 
 .add:hover {
-  background-color: $button-orange-hover;
+  background-color: $button-hover-color;
   cursor: pointer;
 }

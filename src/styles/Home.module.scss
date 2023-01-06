@@ -7,67 +7,9 @@
   flex-direction: column;
 }
 
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $main-color;
-  width: 100%;
-  height: 60px;
-
-  position: sticky;
-  top: 0;
-}
-
-.title {
-  color: $title-color;
-  font-size: 26px;
-  font-family: "Mismo", sans-serif;
-}
-
 .content {
-  background-color: $background-gray;
+  background-color: $background-color;
   flex: 1;
   overflow: auto;
   padding-bottom: 77px;
-}
-
-.description {
-  font-size: 20px;
-  padding: 0px 16px;
-  text-align: justify;
-}
-
-.button-container {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
-
-  background-color: none;
-}
-
-.button {
-  all: unset;
-  color: black;
-  background-color: $button-orange;
-  padding: 10px 16px;
-  border-radius: 40px;
-  border: 1px black solid;
-  text-align: center;
-
-  height: 25px;
-  width: 80vw;
-  max-width: 420px;
-  font-size: 14px;
-  font-weight: 700;
-  margin: 16px;
-  cursor: pointer;
-  font-family: "Mismo", sans-serif;
-}
-
-.button:hover {
-  background-color: $button-orange-hover;
-  cursor: pointer;
 }

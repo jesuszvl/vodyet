@@ -1,0 +1,36 @@
+@import "../../styles/breakpoints";
+@import "../../styles/colors.constants";
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+
+  background-color: none;
+}
+
+.button {
+  all: unset;
+  color: white;
+  background-color: $button-color;
+  padding: 10px 16px;
+  border-radius: 40px;
+  border: 1px black solid;
+  text-align: center;
+
+  height: 25px;
+  width: 80vw;
+  max-width: 420px;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 16px;
+  cursor: pointer;
+  font-family: "Mismo", sans-serif;
+}
+
+.button:hover {
+  background-color: $button-hover-color;
+  cursor: pointer;
+}
