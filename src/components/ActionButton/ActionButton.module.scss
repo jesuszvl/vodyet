@@ -13,8 +13,8 @@
 
 .button {
   all: unset;
-  color: black;
-  background-color: $button-orange;
+  color: white;
+  background-color: $button-color;
   padding: 10px 16px;
   border-radius: 40px;
   border: 1px black solid;
@@ -31,6 +31,6 @@
 }
 
 .button:hover {
-  background-color: $button-orange-hover;
+  background-color: $button-hover-color;
   cursor: pointer;
 }
