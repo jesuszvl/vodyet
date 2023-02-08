@@ -10,7 +10,15 @@ import Login from "../src/components/Login/Login";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Home() {
-  const { data, error } = useSWR("/api/expenses", fetcher);
+  var environment = process.env.NODE_ENV || "development";
+
+  const isDevelopment = environment === "development";
+
+  const API_BASE_URL = isDevelopment
+    ? "http://localhost:3000"
+    : "https://vodyet.makahco.com";
+
+  const { data, error } = useSWR(API_BASE_URL + "/api/expenses", fetcher);
 
   const [login, setLogin] = useState(false);
 
