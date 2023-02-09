@@ -26,19 +26,22 @@ export default function Home() {
     setLogin(true);
   };
 
-  if (error) return <div>Failed to load</div>;
-  if (!data) return <div>Loading...</div>;
-
   return (
     <div className={styles.wrapper}>
       <Header />
-      <div className={styles.content}>
-        {login ? <History historyData={data} /> : <Login />}
-      </div>
-      <ActionButton
-        text={login ? "NEW EXPENSE" : "LOGIN"}
-        onButtonClick={onButtonClick}
-      />
+      {error && <div>Failed to load</div>}
+      {!data && <div>Loading</div>}
+      {!error && data && (
+        <>
+          <div className={styles.content}>
+            {login ? <History historyData={data} /> : <Login />}
+          </div>
+          <ActionButton
+            text={login ? "NEW EXPENSE" : "LOGIN"}
+            onButtonClick={onButtonClick}
+          />
+        </>
+      )}
     </div>
   );
 }
