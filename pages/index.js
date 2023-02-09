@@ -37,7 +37,7 @@ export default function Home() {
             {login ? <History historyData={data} /> : <Login />}
           </div>
           <ActionButton
-            text={login ? "NEW EXPENSE" : "LOGIN"}
+            text={login ? "AGREGAR GASTO" : "INICIAR SESIÓN"}
             onButtonClick={onButtonClick}
           />
         </>

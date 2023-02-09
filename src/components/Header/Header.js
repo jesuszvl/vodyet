@@ -8,7 +8,7 @@ export default function Header() {
         <title>VODYET</title>
         <meta name="description" content="frontbudget" />
         <link
-          href="https://fonts.cdnfonts.com/css/mismo"
+          href="https://fonts.cdnfonts.com/css/instagram-sans-condensed"
           rel="stylesheet"
         ></link>
         <link

@@ -32,7 +32,7 @@ export default function Record({ description, ammount, date, category }) {
         {renderIcon()}
       </span>
       <span className={styles.description}>{description}</span>
-      <span className={styles.ammount}>{ammount}</span>
+      <span className={styles.ammount}>-{ammount}</span>
     </div>
   );
 }
