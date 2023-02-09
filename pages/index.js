@@ -6,6 +6,7 @@ import styles from "../src/styles/Home.module.scss";
 import Header from "../src/components/Header/Header";
 import ActionButton from "../src/components/ActionButton/ActionButton";
 import Login from "../src/components/Login/Login";
+import Footer from "../src/components/Footer/Footer";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -34,12 +35,14 @@ export default function Home() {
       {!error && data && (
         <>
           <div className={styles.content}>
-            {login ? <History historyData={data} /> : <Login />}
+            {login ? (
+              <History historyData={data} />
+            ) : (
+              <Login onButtonClick={onButtonClick} />
+            )}
           </div>
-          <ActionButton
-            text={login ? "AGREGAR GASTO" : "INICIAR SESIÓN"}
-            onButtonClick={onButtonClick}
-          />
+
+          <Footer />
         </>
       )}
     </div>
