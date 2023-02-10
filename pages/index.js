@@ -1,31 +1,24 @@
 import { useState } from "react";
 import useSWR from "swr";
 
+import { API_BASE_URL } from "../config/api";
+
 import History from "../src/components/History/History";
 import styles from "../src/styles/Home.module.scss";
 import Header from "../src/components/Header/Header";
-import ActionButton from "../src/components/ActionButton/ActionButton";
 import Login from "../src/components/Login/Login";
 import Footer from "../src/components/Footer/Footer";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Home() {
-  var environment = process.env.NODE_ENV || "development";
-
-  const isDevelopment = environment === "development";
-
-  const API_BASE_URL = isDevelopment
-    ? "http://localhost:3000"
-    : "https://vodyet.makahco.com";
-
-  const { data, error } = useSWR(API_BASE_URL + "/api/expenses", fetcher);
-
   const [login, setLogin] = useState(false);
 
   const onButtonClick = () => {
     setLogin(true);
   };
+
+  const { data, error } = useSWR(API_BASE_URL + "/api/expenses", fetcher);
 
   return (
     <div className={styles.wrapper}>
@@ -36,7 +29,7 @@ export default function Home() {
         <>
           <div className={styles.content}>
             {login ? (
-              <History historyData={data} />
+              <History historyData={data.expenses} />
             ) : (
               <Login onButtonClick={onButtonClick} />
             )}
