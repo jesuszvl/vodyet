@@ -1,0 +1,41 @@
+@import "../../styles/colors.constants";
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  color: black;
+  font-size: 22px;
+  line-height: 38px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: $background-color;
+}
+
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  flex: 1 0 auto;
+  flex-shrink: inherit;
+  min-width: 0;
+  height: 40px;
+  padding: 8px 16px;
+  font-size: 22px;
+  background: $background-color;
+  border-radius: 8px;
+}
