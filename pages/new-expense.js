@@ -10,12 +10,15 @@ export default function NewExpense() {
     <div className={styles.wrapper}>
       <Header showMenu />
       <div className={styles.content}>
-        <TextInput label={"¿En que día fue?"} value={"11/02/2023"}></TextInput>
+        <TextInput label={"Fecha del caos"} value={"11/02/2023"}></TextInput>
         <TextInput
-          label={"¿Cuanto te chingaste?"}
+          label={"¿De a cuanto el putazo"}
           value={"$179.12"}
         ></TextInput>
-        <TextInput label={"¿En que mamada?"} value={"Spotify"}></TextInput>
+        <TextInput
+          label={"Describeme esa chingadera"}
+          value={"Spotify"}
+        ></TextInput>
       </div>
       <ActionButton text={"INGRESAR GASTO"} href={"/history"} />
     </div>
