@@ -7,7 +7,7 @@ export default function TextInput({ label, value }) {
         <label className={styles.label}>{label}</label>
       </div>
       <div className={styles["input-container"]}>
-        <input className={styles.input} value={value} />
+        <input className={styles.input} defaultValue={value} />
       </div>
     </div>
   );
