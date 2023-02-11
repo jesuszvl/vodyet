@@ -19,7 +19,7 @@ export default function Header() {
           href="https://fonts.cdnfonts.com/css/monesque"
           rel="stylesheet"
         ></link>
-        <link rel="icon" href="/vodyet_logo.png" />
+        <link rel="icon" href="/vodyet_logo.jpg" />
       </Head>
 
       <div className={styles.header}>
