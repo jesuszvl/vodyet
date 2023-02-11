@@ -1,0 +1,32 @@
+@import "breakpoints";
+@import "colors.constants";
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  background-color: $background-color;
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.description {
+  padding: 0px 16px 16px;
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  padding-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 18px;
+}

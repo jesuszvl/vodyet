@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styles from "./Header.module.scss";
 
 export default function Header() {
@@ -23,7 +24,9 @@ export default function Header() {
       </Head>
 
       <div className={styles.header}>
-        <h1 className={styles.title}>VODYET</h1>
+        <Link href="/">
+          <h1 className={styles.title}>VODYET</h1>
+        </Link>
       </div>
     </>
   );

@@ -1,11 +1,12 @@
+import Link from "next/link";
 import styles from "./ActionButton.module.scss";
 
-export default function ActionButton({ text, onButtonClick }) {
+export default function ActionButton({ text, href }) {
   return (
-    <div className={styles["button-container"]}>
-      <button className={styles.button} onClick={onButtonClick}>
-        {text}
-      </button>
-    </div>
+    <Link href={href}>
+      <div className={styles["button-container"]}>
+        <button className={styles.button}>{text}</button>
+      </div>
+    </Link>
   );
 }
