@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
+import MenuIcon from "../../icons/MenuIcon";
 import styles from "./Header.module.scss";
 
-export default function Header() {
+export default function Header({ showMenu }) {
   return (
     <>
       <Head>
@@ -23,10 +24,18 @@ export default function Header() {
         <link rel="icon" href="/vodyet_logo.jpg" />
       </Head>
 
-      <div className={styles.header}>
-        <Link href="/">
-          <h1 className={styles.title}>VODYET</h1>
-        </Link>
+      <div className={styles.container}>
+        {showMenu && (
+          <div className={styles.menu}>
+            <MenuIcon />
+          </div>
+        )}
+
+        <div className={styles.header}>
+          <Link href="/">
+            <h1 className={styles.title}>VODYET</h1>
+          </Link>
+        </div>
       </div>
     </>
   );

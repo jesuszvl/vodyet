@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <div className={styles.wrapper}>
-      <Header />
+      <Header showMenu />
       <div className={styles.content}>
         {data && <History historyData={data.expenses} />}
       </div>
