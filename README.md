@@ -6,4 +6,4 @@ Project developed with Next.js
 
 ## Demo
 
-[https://vodyet.makahco.com](https://vodyet.makahco.com)
+[https://vodyet.com](https://vodyet.com)
