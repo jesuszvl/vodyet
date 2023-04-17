@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import "../src/styles/globals.scss";
-import { auth } from "./utils/firebaseConfig";
+import auth from "./utils/firebaseConfig";
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null);

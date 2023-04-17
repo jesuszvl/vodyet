@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./utils/firebaseConfig";
+import auth from "./utils/firebaseConfig";
 import { useRouter } from "next/router";
 
 import styles from "../src/styles/Login.module.scss";
