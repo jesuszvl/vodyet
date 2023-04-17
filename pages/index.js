@@ -1,12 +1,10 @@
-import Link from "next/link";
 import ActionButton from "../src/components/ActionButton/ActionButton";
 import Footer from "../src/components/Footer/Footer";
 import Header from "../src/components/Header/Header";
 
 import styles from "../src/styles/Index.module.scss";
 
-export default function Login() {
-  const onLoginClick = () => {};
+export default function Index() {
   return (
     <div className={styles.wrapper}>
       <Header />
@@ -20,8 +18,7 @@ export default function Login() {
             personales.
           </div>
         </div>
-        <ActionButton text={"INICIAR SESIÓN"} href={"/history"} />
-        <ActionButton text={"REGISTRARME"} href={"/signup"} />
+        <ActionButton text={"IDENTIFICARME"} href={"/login"} />
       </div>
       <Footer />
     </div>
