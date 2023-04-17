@@ -1,4 +1,4 @@
-import connectDB from "../utils/db";
+import connectDB from "../../src/utils/db";
 import Expense from "../../src/model/Expense";
 
 export default async function handler(req, res) {
