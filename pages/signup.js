@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import auth from "./utils/firebaseConfig";
+import auth from "../src/utils/firebaseConfig";
 import { useRouter } from "next/router";
 import Footer from "../src/components/Footer/Footer";
 import Header from "../src/components/Header/Header";
