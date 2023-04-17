@@ -3,7 +3,8 @@ import Expense from "../../src/model/Expense";
 
 export default async function handler(req, res) {
   connectDB();
-  const expenses = await Expense.find();
+  console.log(req.query.userId);
+  const expenses = await Expense.find({ userId: req.query.userId });
 
   res.json({
     expenses,
