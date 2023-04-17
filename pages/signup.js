@@ -32,7 +32,7 @@ function SignUp() {
 
   const renderSignUp = () => {
     return (
-      <form onSubmit={handleSignUp}>
+      <form onSubmit={handleSignUp} className={styles["login-form"]}>
         <div className={styles["form-fields"]}>
           <TextInput
             label={"Email:"}
