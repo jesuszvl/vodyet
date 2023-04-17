@@ -23,6 +23,7 @@ function Login() {
       if (user) {
         setUserEmail(user.email);
         setLoggedIn(true);
+        router.push("/me");
       } else {
         setLoggedIn(false);
       }
@@ -44,7 +45,7 @@ function Login() {
       console.log("User:", user);
       setUserEmail(user.email);
       setLoggedIn(true);
-      router.push("/history");
+      router.push("/me");
     } catch (error) {
       console.log(error);
     }
@@ -54,37 +55,40 @@ function Login() {
     return loggedIn ? (
       <div>
         <b>Usuario:</b> {userEmail}{" "}
+        <BaseButton onClick={() => router.push("/history")} text="VER GASTOS" />
         <BaseButton onClick={() => auth.signOut()} text="CERRAR SESIÓN" />
       </div>
     ) : (
-      <form onSubmit={handleLogin} className={styles["login-form"]}>
-        <div className={styles["form-fields"]}>
-          <TextInput
-            type="email"
-            label={"Email:"}
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <TextInput
-            type="password"
-            label={"Password:"}
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </div>
-        <BaseButton text="INICIAR SESIÓN" type="submit" />
-        ¿No tienes cuenta? <Link href={"/signup"}>Crea una rapidamente</Link>
-      </form>
+      <>
+        <div className={styles.title}>Ingresa a tu cuenta</div>
+        <form onSubmit={handleLogin} className={styles["login-form"]}>
+          <div className={styles["form-fields"]}>
+            <TextInput
+              type="email"
+              label={"Email:"}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+            <TextInput
+              type="password"
+              label={"Password:"}
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </div>
+          <BaseButton text="INICIAR SESIÓN" type="submit" />
+          <span>
+            ¿No tienes cuenta? <Link href={"/signup"}>¡Crea una hoy!</Link>
+          </span>
+        </form>
+      </>
     );
   };
 
   return (
     <div className={styles.wrapper}>
       <Header />
-      <div className={styles.content}>
-        <div className={styles.title}>Ingresa a tu cuenta</div>
-        {renderLogin()}
-      </div>
+      <div className={styles.content}>{renderLogin()}</div>
       <Footer />
     </div>
   );
