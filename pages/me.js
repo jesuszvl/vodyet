@@ -21,7 +21,7 @@ function Me() {
         setLoggedIn(true);
       } else {
         setLoggedIn(false);
-        router.push("/login");
+        router.push("/");
       }
     });
 
