@@ -18,7 +18,7 @@
 }
 
 .description {
-  padding: 0px 16px 16px;
+  padding: 0px 16px;
   text-align: center;
 }
 
@@ -46,4 +46,8 @@
   max-width: 420px;
   margin: 8px 16px;
   width: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
 }
