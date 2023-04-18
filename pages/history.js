@@ -8,6 +8,7 @@ import History from "../src/components/History/History";
 import styles from "../src/styles/History.module.scss";
 import Header from "../src/components/Header/Header";
 import ActionButton from "../src/components/ActionButton/ActionButton";
+import Wrapper from "../src/components/Wrapper/Wrapper";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -29,12 +30,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={styles.wrapper}>
-      <Header showMenu />
+    <Wrapper showMenu>
       <div className={styles.content}>
         {data && <History historyData={data.expenses} />}
       </div>
       <ActionButton text={"NUEVO GASTO"} href={"/new-expense"} />
-    </div>
+    </Wrapper>
   );
 }
