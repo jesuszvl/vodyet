@@ -5,8 +5,6 @@ import { useRouter } from "next/router";
 
 import styles from "../src/styles/Login.module.scss";
 import BaseButton from "../src/components/BaseButton/BaseButton";
-import Footer from "../src/components/Footer/Footer";
-import Header from "../src/components/Header/Header";
 import TextInput from "../src/components/TextInput/TextInput";
 import Link from "next/link";
 import Wrapper from "../src/components/Wrapper/Wrapper";

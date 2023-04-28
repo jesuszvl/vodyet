@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../src/utils/firebaseConfig";
 import { useRouter } from "next/router";
 
 import styles from "../src/styles/Login.module.scss";
 import BaseButton from "../src/components/BaseButton/BaseButton";
-import Footer from "../src/components/Footer/Footer";
-import Header from "../src/components/Header/Header";
 import Wrapper from "../src/components/Wrapper/Wrapper";
 
 function Me() {
