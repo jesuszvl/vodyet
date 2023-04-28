@@ -11,18 +11,23 @@ import Wrapper from "../src/components/Wrapper/Wrapper";
 import CategorySelector from "../src/components/CategorySelector/CategorySelector";
 
 export default function NewExpense() {
-  const [userId, setUserId] = useState(null);
-  const [expenseDate, setExpenseDate] = useState("");
-  const [expenseValue, setExpenseValue] = useState("");
-  const [expenseDescription, setExpenseDescription] = useState("");
-  const [expenseCategory, setExpenseCategory] = useState("comida");
+  const [expenseData, setExpenseData] = useState({
+    date: "",
+    ammount: "",
+    description: "",
+    category: "comida",
+    userId: null,
+  });
 
   const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        setUserId(user.uid);
+        setExpenseData((prevExpenseData) => ({
+          ...prevExpenseData,
+          userId: user.uid,
+        }));
       }
     });
 
@@ -31,13 +36,6 @@ export default function NewExpense() {
 
   const handleNewExpense = async (event) => {
     event.preventDefault();
-    const expenseData = {
-      date: expenseDate,
-      value: expenseValue,
-      desc: expenseDescription,
-      category: expenseCategory,
-      userId: userId,
-    };
     const response = await fetch("/api/expenses", {
       method: "POST",
       headers: {
@@ -49,7 +47,10 @@ export default function NewExpense() {
   };
 
   const updateExpenseCategory = (optionValue) => {
-    setExpenseCategory(optionValue);
+    setExpenseData((prevExpenseData) => ({
+      ...prevExpenseData,
+      category: optionValue,
+    }));
   };
 
   return (
@@ -59,19 +60,34 @@ export default function NewExpense() {
           <TextInput
             type="datetime-local"
             label={"Fecha y Hora"}
-            value={expenseDate}
-            onChange={(event) => setExpenseDate(event.target.value)}
+            value={expenseData.date}
+            onChange={(event) =>
+              setExpenseData((prevExpenseData) => ({
+                ...prevExpenseData,
+                date: event.target.value,
+              }))
+            }
           ></TextInput>
           <TextInput
             type="number"
             label={"Monto"}
-            value={expenseValue}
-            onChange={(event) => setExpenseValue(event.target.value)}
+            value={expenseData.ammount}
+            onChange={(event) =>
+              setExpenseData((prevExpenseData) => ({
+                ...prevExpenseData,
+                ammount: event.target.value,
+              }))
+            }
           ></TextInput>
           <TextInput
             label={"Descripción"}
-            value={expenseDescription}
-            onChange={(event) => setExpenseDescription(event.target.value)}
+            value={expenseData.description}
+            onChange={(event) =>
+              setExpenseData((prevExpenseData) => ({
+                ...prevExpenseData,
+                description: event.target.value,
+              }))
+            }
           ></TextInput>
           <CategorySelector
             onCategoryUpdate={updateExpenseCategory}

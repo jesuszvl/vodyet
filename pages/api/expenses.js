@@ -7,10 +7,7 @@ export default async function handler(req, res) {
     const expenses = await Expense.find({ userId: req.query.userId });
     res.json({ expenses });
   } else if (req.method === "POST") {
-    const userId = req.body.userId;
-    const description = req.body.desc;
-    const ammount = req.body.value;
-    const category = req.body.category;
+    const { userId, description, ammount, category } = req.body;
     const expense = new Expense({
       userId,
       description,
