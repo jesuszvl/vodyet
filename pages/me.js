@@ -29,9 +29,9 @@ function Me() {
   const renderMePage = () => {
     return loggedIn ? (
       <div>
-        <b>Usuario:</b> {userEmail}{" "}
         <BaseButton onClick={() => router.push("/history")} text="VER GASTOS" />
         <BaseButton onClick={() => auth.signOut()} text="CERRAR SESIÓN" />
+        {userEmail}
       </div>
     ) : null;
   };

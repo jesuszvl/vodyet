@@ -10,11 +10,12 @@ export default async function handler(req, res) {
     const userId = req.body.userId;
     const description = req.body.desc;
     const ammount = req.body.value;
+    const category = req.body.category;
     const expense = new Expense({
       userId,
       description,
       ammount,
-      category: "servicios",
+      category,
     });
     await expense.save();
     res.status(201).json({ message: "Expense created successfully!" });
