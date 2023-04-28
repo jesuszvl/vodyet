@@ -1,26 +1,101 @@
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+
+import { API_BASE_URL } from "../config/api";
+import auth from "../src/utils/firebaseConfig";
+
 import styles from "../src/styles/NewExpense.module.scss";
-import Header from "../src/components/Header/Header";
-import ActionButton from "../src/components/ActionButton/ActionButton";
+import BaseButton from "../src/components/BaseButton/BaseButton";
 import TextInput from "../src/components/TextInput/TextInput";
 import Wrapper from "../src/components/Wrapper/Wrapper";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import CategorySelector from "../src/components/CategorySelector/CategorySelector";
 
 export default function NewExpense() {
+  const [expenseData, setExpenseData] = useState({
+    date: "",
+    ammount: "",
+    description: "",
+    category: "comida",
+    userId: null,
+  });
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setExpenseData((prevExpenseData) => ({
+          ...prevExpenseData,
+          userId: user.uid,
+        }));
+      }
+    });
+
+    return unsubscribe;
+  }, []);
+
+  const handleNewExpense = async (event) => {
+    event.preventDefault();
+    const response = await fetch("/api/expenses", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(expenseData),
+    });
+    router.push("/history");
+  };
+
+  const updateExpenseCategory = (optionValue) => {
+    setExpenseData((prevExpenseData) => ({
+      ...prevExpenseData,
+      category: optionValue,
+    }));
+  };
+
   return (
     <Wrapper>
       <div className={styles.content}>
-        <TextInput label={"Fecha del caos"} value={"11/02/2023"}></TextInput>
-        <TextInput
-          label={"¿De a cuanto el putazo"}
-          value={"$179.12"}
-        ></TextInput>
-        <TextInput
-          label={"Describeme esa chingadera"}
-          value={"Spotify"}
-        ></TextInput>
+        <form onSubmit={handleNewExpense} className={styles["expense-form"]}>
+          <TextInput
+            type="datetime-local"
+            label={"Fecha y Hora"}
+            value={expenseData.date}
+            onChange={(event) =>
+              setExpenseData((prevExpenseData) => ({
+                ...prevExpenseData,
+                date: event.target.value,
+              }))
+            }
+          ></TextInput>
+          <TextInput
+            type="number"
+            label={"Monto"}
+            value={expenseData.ammount}
+            onChange={(event) =>
+              setExpenseData((prevExpenseData) => ({
+                ...prevExpenseData,
+                ammount: event.target.value,
+              }))
+            }
+          ></TextInput>
+          <TextInput
+            label={"Descripción"}
+            value={expenseData.description}
+            onChange={(event) =>
+              setExpenseData((prevExpenseData) => ({
+                ...prevExpenseData,
+                description: event.target.value,
+              }))
+            }
+          ></TextInput>
+          <CategorySelector
+            onCategoryUpdate={updateExpenseCategory}
+            label={"Categoría"}
+          />
+          <BaseButton text="INGRESAR GASTO" type="submit" />
+        </form>
       </div>
-      <ActionButton text={"INGRESAR GASTO"} href={"/history"} />
     </Wrapper>
   );
 }

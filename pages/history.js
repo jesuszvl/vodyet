@@ -6,7 +6,6 @@ import auth from "../src/utils/firebaseConfig";
 
 import History from "../src/components/History/History";
 import styles from "../src/styles/History.module.scss";
-import Header from "../src/components/Header/Header";
 import ActionButton from "../src/components/ActionButton/ActionButton";
 import Wrapper from "../src/components/Wrapper/Wrapper";
 
