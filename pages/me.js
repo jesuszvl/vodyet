@@ -7,6 +7,7 @@ import styles from "../src/styles/Login.module.scss";
 import BaseButton from "../src/components/BaseButton/BaseButton";
 import Footer from "../src/components/Footer/Footer";
 import Header from "../src/components/Header/Header";
+import Wrapper from "../src/components/Wrapper/Wrapper";
 
 function Me() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -39,11 +40,9 @@ function Me() {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <Header />
+    <Wrapper showFooter showMenu>
       <div className={styles.content}>{renderMePage()}</div>
-      <Footer />
-    </div>
+    </Wrapper>
   );
 }
 

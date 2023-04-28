@@ -9,6 +9,7 @@ import Footer from "../src/components/Footer/Footer";
 import Header from "../src/components/Header/Header";
 import TextInput from "../src/components/TextInput/TextInput";
 import Link from "next/link";
+import Wrapper from "../src/components/Wrapper/Wrapper";
 
 function Index() {
   const [email, setEmail] = useState("");
@@ -79,8 +80,7 @@ function Index() {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <Header />
+    <Wrapper showFooter>
       <div className={styles.content}>
         <div className={styles.description}>
           <div className={styles.title}>
@@ -93,8 +93,7 @@ function Index() {
         </div>
         {renderLogin()}
       </div>
-      <Footer />
-    </div>
+    </Wrapper>
   );
 }
 

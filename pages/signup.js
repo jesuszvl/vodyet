@@ -7,6 +7,7 @@ import Header from "../src/components/Header/Header";
 import BaseButton from "../src/components/BaseButton/BaseButton";
 import TextInput from "../src/components/TextInput/TextInput";
 import styles from "../src/styles/Login.module.scss";
+import Wrapper from "../src/components/Wrapper/Wrapper";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -35,13 +36,13 @@ function SignUp() {
       <form onSubmit={handleSignUp} className={styles["login-form"]}>
         <div className={styles["form-fields"]}>
           <TextInput
-            label={"Email:"}
+            placeholder="Email"
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
           <TextInput
-            label={"Password:"}
+            placeholder="Password"
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
@@ -53,14 +54,17 @@ function SignUp() {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <Header />
+    <Wrapper showFooter>
       <div className={styles.content}>
-        <div className={styles.title}>Registrate gratis</div>
+        <div className={styles.description}>
+          <div className={styles.title}>Crea tu nueva cuenta</div>
+          <div className={styles.subtitle}>
+            Registrate y empieza a utilizar Vodyet para controlar tus gastos.
+          </div>
+        </div>
         {renderSignUp()}
       </div>
-      <Footer />
-    </div>
+    </Wrapper>
   );
 }
 
