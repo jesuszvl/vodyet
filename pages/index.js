@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 
 import styles from "../src/styles/Login.module.scss";
 import Wrapper from "../src/components/Wrapper/Wrapper";
+import BaseButton from "../src/components/BaseButton/BaseButton";
+import Link from "next/link";
 
 function Index() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -37,6 +39,10 @@ function Index() {
             personales.
           </div>
         </div>
+        <br></br>
+        <Link href={"/login"}>
+          <BaseButton text={"INICIAR SESIÓN"}></BaseButton>
+        </Link>
       </div>
     </Wrapper>
   );
