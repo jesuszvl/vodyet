@@ -3,7 +3,6 @@ import auth from "../src/utils/firebaseConfig";
 import { useRouter } from "next/router";
 
 import styles from "../src/styles/Login.module.scss";
-import BaseButton from "../src/components/BaseButton/BaseButton";
 import Wrapper from "../src/components/Wrapper/Wrapper";
 
 function Me() {
