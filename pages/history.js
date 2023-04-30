@@ -8,6 +8,7 @@ import History from "../src/components/History/History";
 import styles from "../src/styles/History.module.scss";
 import ActionButton from "../src/components/ActionButton/ActionButton";
 import Wrapper from "../src/components/Wrapper/Wrapper";
+import { useRouter } from "next/router";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -18,18 +19,30 @@ export default function Home() {
     fetcher
   );
 
+  const router = useRouter();
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         setUserId(user.uid);
+      } else {
+        router.push("/");
       }
     });
 
     return unsubscribe;
   }, []);
 
+  const isUserLoggedIn = userId !== null;
+
   return (
-    <Wrapper showMenu>
+    <Wrapper
+      showMenu
+      isUserLoggedIn={isUserLoggedIn}
+      onUserLogout={() => {
+        auth.signOut();
+      }}
+    >
       <div className={styles.content}>
         {data && <History historyData={data.expenses} />}
       </div>

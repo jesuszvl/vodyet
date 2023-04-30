@@ -9,7 +9,7 @@ const connectDB = () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     },
-    () => console.log("connected to db")
+    () => console.log("Connected to MongoDB!")
   );
 };
 

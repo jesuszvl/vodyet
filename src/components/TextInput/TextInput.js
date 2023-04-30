@@ -21,6 +21,7 @@ export default function TextInput({
           defaultValue={value}
           onChange={onChange}
           placeholder={placeholder}
+          required
         />
       </div>
     </div>
