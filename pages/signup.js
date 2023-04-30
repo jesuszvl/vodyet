@@ -50,7 +50,7 @@ function SignUp() {
   };
 
   return (
-    <Wrapper showFooter showMenu>
+    <Wrapper showFooter>
       <div className={styles.content}>
         <div className={styles.description}>
           <div className={styles.title}>Crea tu nueva cuenta</div>
