@@ -36,7 +36,7 @@ export default function NewExpense() {
 
   const handleNewExpense = async (event) => {
     event.preventDefault();
-    const response = await fetch("/api/expenses", {
+    const response = await fetch(API_BASE_URL + "/api/expenses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,8 +53,10 @@ export default function NewExpense() {
     }));
   };
 
+  const isUserLoggedIn = expenseData?.userId !== null;
+
   return (
-    <Wrapper>
+    <Wrapper showMenu isUserLoggedIn={isUserLoggedIn}>
       <div className={styles.content}>
         <form onSubmit={handleNewExpense} className={styles["expense-form"]}>
           <TextInput

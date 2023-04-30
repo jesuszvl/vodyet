@@ -27,17 +27,17 @@ function Me() {
   }, []);
 
   const renderMePage = () => {
-    return loggedIn ? (
-      <div>
-        <BaseButton onClick={() => router.push("/history")} text="VER GASTOS" />
-        <BaseButton onClick={() => auth.signOut()} text="CERRAR SESIÓN" />
-        {userEmail}
-      </div>
-    ) : null;
+    return loggedIn ? <div>{userEmail}</div> : null;
   };
 
   return (
-    <Wrapper showFooter showMenu>
+    <Wrapper
+      showMenu
+      isUserLoggedIn={loggedIn}
+      onUserLogout={() => {
+        auth.signOut();
+      }}
+    >
       <div className={styles.content}>{renderMePage()}</div>
     </Wrapper>
   );

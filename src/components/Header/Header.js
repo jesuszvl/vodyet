@@ -3,7 +3,7 @@ import Link from "next/link";
 import MenuIcon from "../../icons/MenuIcon";
 import styles from "./Header.module.scss";
 
-export default function Header({ showMenu }) {
+export default function Header({ showMenu, onSidebarToggle }) {
   return (
     <>
       <Head>
@@ -25,17 +25,14 @@ export default function Header({ showMenu }) {
       </Head>
 
       <div className={styles.container}>
+        <Link href="/" className={styles.header}>
+          <span className={styles.title}>VODYET</span>
+        </Link>
         {showMenu && (
-          <div className={styles.menu}>
+          <div className={styles.menu} onClick={onSidebarToggle}>
             <MenuIcon />
           </div>
         )}
-
-        <div className={styles.header}>
-          <Link href="/">
-            <h1 className={styles.title}>VODYET</h1>
-          </Link>
-        </div>
       </div>
     </>
   );

@@ -2,8 +2,6 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../src/utils/firebaseConfig";
 import { useRouter } from "next/router";
-import Footer from "../src/components/Footer/Footer";
-import Header from "../src/components/Header/Header";
 import BaseButton from "../src/components/BaseButton/BaseButton";
 import TextInput from "../src/components/TextInput/TextInput";
 import styles from "../src/styles/Login.module.scss";
@@ -22,9 +20,7 @@ function SignUp() {
         email,
         password
       );
-      console.log("Successfully signed up");
       const user = userCredential.user;
-      console.log("User:", user);
       router.push("/");
     } catch (error) {
       console.log(error);
@@ -54,7 +50,7 @@ function SignUp() {
   };
 
   return (
-    <Wrapper showFooter>
+    <Wrapper showFooter showMenu>
       <div className={styles.content}>
         <div className={styles.description}>
           <div className={styles.title}>Crea tu nueva cuenta</div>

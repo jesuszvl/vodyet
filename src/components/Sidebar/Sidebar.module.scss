@@ -1,0 +1,48 @@
+.sidebar-container {
+  width: 200px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #14a180;
+  padding: 16px;
+  animation-name: sidebar;
+  animation-duration: 0.2s;
+  animation-direction: reverse;
+}
+
+.menu {
+  display: flex;
+  right: 16px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.sidebar-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 42px;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.option {
+  color: black;
+  cursor: pointer;
+
+  &:hover {
+    color: white;
+  }
+}
+
+@keyframes sidebar {
+  0% {
+    width: 200px;
+  }
+  100% {
+    width: 0px;
+  }
+}
