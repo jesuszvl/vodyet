@@ -1,0 +1,28 @@
+@import "../../styles/breakpoints";
+@import "../../styles/colors.constants";
+
+.features-container {
+  padding: 24px 16px;
+}
+
+.features-title {
+  font-size: 42px;
+  margin: 0px;
+  padding-bottom: 24px;
+}
+
+.feature-main {
+  display: flex;
+  gap: 8px;
+}
+
+.feature {
+  .title {
+    font-size: 28px;
+    font-weight: 900;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+}

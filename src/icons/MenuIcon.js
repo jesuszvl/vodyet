@@ -1,8 +1,8 @@
 import React from "react";
 
 export default function MenuIcon({
-  width = 32,
-  height = 32,
+  width = 24,
+  height = 24,
   stroke = "#14a180",
 }) {
   return (

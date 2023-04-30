@@ -1,15 +1,13 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import auth from "../src/utils/firebaseConfig";
 import { useRouter } from "next/router";
 
-import styles from "../src/styles/Login.module.scss";
 import Wrapper from "../src/components/Wrapper/Wrapper";
 import Header from "../src/components/Header/Header";
 import HeroSection from "../src/components/HeroSection/HeroSection";
+import Features from "../src/components/Features/Features";
 
 function Index() {
-  const [loggedIn, setLoggedIn] = useState(false);
-
   const router = useRouter();
 
   useEffect(() => {
@@ -23,9 +21,10 @@ function Index() {
   }, []);
 
   return (
-    <Wrapper showFooter>
+    <Wrapper>
       <Header />
       <HeroSection />
+      <Features />
     </Wrapper>
   );
 }
