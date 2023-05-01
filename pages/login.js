@@ -7,12 +7,12 @@ import styles from "../src/styles/Login.module.scss";
 import Wrapper from "../src/components/Wrapper/Wrapper";
 import TextInput from "../src/components/TextInput/TextInput";
 import BaseButton from "../src/components/BaseButton/BaseButton";
+import Link from "next/link";
+import Header from "../src/components/Header/Header";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [userEmail, setUserEmail] = useState("");
 
   const router = useRouter();
 
@@ -25,8 +25,6 @@ export default function Login() {
         password
       );
       const user = userCredential.user;
-      setUserEmail(user.email);
-      setLoggedIn(true);
       router.push("/history");
     } catch (error) {
       console.log(error);
@@ -58,7 +56,7 @@ export default function Login() {
   };
 
   return (
-    <Wrapper showMenu showFooter>
+    <Wrapper>
       <div className={styles.content}>
         <div className={styles.description}>
           <div className={styles.title}>Accede a tu cuenta</div>
@@ -67,6 +65,12 @@ export default function Login() {
           </div>
         </div>
         {renderLogin()}
+        <span>
+          ¿No tienes cuenta?{" "}
+          <Link href={"/signup"}>
+            <b>¡Crea una hoy!</b>
+          </Link>
+        </span>
       </div>
     </Wrapper>
   );

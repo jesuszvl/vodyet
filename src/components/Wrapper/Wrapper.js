@@ -1,29 +1,31 @@
 import { useState } from "react";
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
+
+import HeadTag from "../HeadTag/HeadTag";
 import Sidebar from "../Sidebar/Sidebar";
+import Footer from "../Footer/Footer";
 import styles from "./Wrapper.module.scss";
+import Header from "../Header/Header";
 
 export default function Wrapper({
   children,
+  showActionButton,
   showMenu,
-  showFooter,
-  isUserLoggedIn,
   onUserLogout,
 }) {
   const [showSidebar, setShowSidebar] = useState(false);
-  const onSidebarToggle = () => {
-    setShowSidebar(!showSidebar);
-  };
   return (
     <div className={styles.wrapper}>
-      <Header showMenu={showMenu} onSidebarToggle={onSidebarToggle} />
+      <Header
+        showActionButton={showActionButton}
+        showMenu={showMenu}
+        onSidebarOpen={() => setShowSidebar(true)}
+      />
+      <HeadTag />
       {children}
-      {showFooter && <Footer />}
+      <Footer />
       {showSidebar && (
         <Sidebar
-          onSidebarToggle={onSidebarToggle}
-          isUserLoggedIn={isUserLoggedIn}
+          onSidebarClose={() => setShowSidebar(false)}
           onUserLogout={onUserLogout}
         />
       )}

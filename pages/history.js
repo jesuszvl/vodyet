@@ -35,6 +35,8 @@ export default function Home() {
 
   const isUserLoggedIn = userId !== null;
 
+  if (!data) return <p>Loading...</p>;
+
   return (
     <Wrapper
       showMenu

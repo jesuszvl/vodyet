@@ -1,0 +1,50 @@
+@import "../../styles/breakpoints";
+@import "../../styles/colors.constants";
+
+.features-container {
+  padding: 24px 16px;
+
+  @include device_md {
+    padding: 24px 32px;
+  }
+}
+
+.features-title {
+  font-size: 38px;
+  margin: 0px;
+  padding-bottom: 24px;
+  text-align: center;
+}
+
+.features-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include device_md {
+    flex-direction: row;
+    gap: 32px;
+  }
+}
+
+.feature-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feature {
+  width: 100%;
+
+  @include device_md {
+    width: 33.3%;
+  }
+  .title {
+    font-size: 28px;
+    font-weight: 900;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+}
