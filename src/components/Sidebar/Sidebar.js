@@ -19,6 +19,11 @@ export default function Sidebar({ onSidebarClose, onUserLogout }) {
             Mis Gastos
           </Link>
         </div>
+        <div className={styles.option} onClick={onSidebarClose}>
+          <Link href="/new-expense" className={styles.option}>
+            Nuevo Gasto
+          </Link>
+        </div>
         <div className={styles.option} onClick={onUserLogout}>
           Cerrar Sesión
         </div>
