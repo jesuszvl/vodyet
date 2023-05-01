@@ -12,7 +12,7 @@ export default function CloseIcon({
       width={width}
       height={height}
       viewBox="0 0 24 24"
-      stroke-width="2"
+      strokeWidth="2"
       stroke={stroke}
       fill="none"
       strokeLinecap="round"

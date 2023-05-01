@@ -8,6 +8,7 @@ import Wrapper from "../src/components/Wrapper/Wrapper";
 import TextInput from "../src/components/TextInput/TextInput";
 import BaseButton from "../src/components/BaseButton/BaseButton";
 import Link from "next/link";
+import Header from "../src/components/Header/Header";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -55,7 +56,7 @@ export default function Login() {
   };
 
   return (
-    <Wrapper showFooter>
+    <Wrapper>
       <div className={styles.content}>
         <div className={styles.description}>
           <div className={styles.title}>Accede a tu cuenta</div>

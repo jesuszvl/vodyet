@@ -18,11 +18,10 @@ function Index() {
     });
 
     return unsubscribe;
-  }, []);
+  }, [router]);
 
   return (
-    <Wrapper>
-      <Header />
+    <Wrapper showActionButton>
       <HeroSection />
       <Features />
     </Wrapper>
