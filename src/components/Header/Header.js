@@ -2,8 +2,14 @@ import Link from "next/link";
 import MenuIcon from "../../icons/MenuIcon";
 import styles from "./Header.module.scss";
 import ActionButton from "../ActionButton/ActionButton";
+import CloseIcon from "../../icons/CloseIcon";
 
-export default function Header({ showActionButton, showMenu, onSidebarOpen }) {
+export default function Header({
+  showActionButton,
+  showMenu,
+  onMenuPopupToggle,
+  showMenuPopup,
+}) {
   return (
     <div className={styles["header-container"]}>
       <Link href="/" className={styles["header-title"]}>
@@ -15,8 +21,8 @@ export default function Header({ showActionButton, showMenu, onSidebarOpen }) {
         </div>
       )}
       {showMenu && (
-        <div className={styles.menu} onClick={onSidebarOpen}>
-          <MenuIcon />
+        <div className={styles.menu} onClick={onMenuPopupToggle}>
+          {showMenuPopup ? <CloseIcon /> : <MenuIcon />}
         </div>
       )}
     </div>

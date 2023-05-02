@@ -1,0 +1,30 @@
+.user-form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.user-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 16px;
+  max-width: 400px;
+}
+
+.user-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 16px;
+}
+
+.title {
+  font-size: 36px;
+  padding-bottom: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 24px;
+}

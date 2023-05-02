@@ -2,10 +2,10 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../src/utils/firebaseConfig";
 import { useRouter } from "next/router";
-import BaseButton from "../src/components/BaseButton/BaseButton";
-import TextInput from "../src/components/TextInput/TextInput";
-import styles from "../src/styles/Login.module.scss";
 import Wrapper from "../src/components/Wrapper/Wrapper";
+import UserForm from "../src/components/UserForm/UserForm";
+
+import styles from "../src/styles/Index.module.scss";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -21,44 +21,25 @@ function SignUp() {
         password
       );
       const user = userCredential.user;
-      router.push("/");
+      if (user) router.push("/me");
     } catch (error) {
       console.log(error);
     }
   };
 
-  const renderSignUp = () => {
-    return (
-      <form onSubmit={handleSignUp} className={styles["login-form"]}>
-        <div className={styles["form-fields"]}>
-          <TextInput
-            placeholder="Email"
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <TextInput
-            placeholder="Password"
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </div>
-        <BaseButton text="CREAR CUENTA" type="submit" />
-      </form>
-    );
-  };
-
   return (
     <Wrapper showFooter>
       <div className={styles.content}>
-        <div className={styles.description}>
-          <div className={styles.title}>Crea tu nueva cuenta</div>
-          <div className={styles.subtitle}>
-            Registrate y empieza a utilizar Vodyet para controlar tus gastos.
-          </div>
-        </div>
-        {renderSignUp()}
+        <UserForm
+          title="Registrate con nosotros"
+          subtitle="Ingresa tu correo electrónico y contraseña para continuar"
+          handleSubmit={handleSignUp}
+          submitText={"Crear Cuenta"}
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+        />
       </div>
     </Wrapper>
   );
