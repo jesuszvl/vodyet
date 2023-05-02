@@ -20,13 +20,13 @@ export default function Wrapper({
 
   return (
     <div className={styles.wrapper}>
+      <HeadTag />
       <Header
         showActionButton={showActionButton}
         showMenu={showMenu}
         showMenuPopup={showMenuPopup}
         onMenuPopupToggle={handleMenuPopupToggle}
       />
-      <HeadTag />
       {children}
       <Footer />
       {showMenuPopup && (

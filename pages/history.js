@@ -48,7 +48,6 @@ export default function Home() {
       <div className={styles.content}>
         {data && <History historyData={data.expenses} />}
       </div>
-      <ActionButton text={"NUEVO GASTO"} href={"/new-expense"} />
     </Wrapper>
   );
 }
