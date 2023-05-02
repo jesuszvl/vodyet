@@ -31,7 +31,7 @@ export default function Home() {
     });
 
     return unsubscribe;
-  }, []);
+  }, [router]);
 
   const isUserLoggedIn = userId !== null;
 
