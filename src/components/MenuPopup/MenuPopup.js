@@ -11,7 +11,7 @@ export default function MenuPopup({ onMenuPopupToggle, onUserLogout }) {
           </Link>
         </div>
         <div className={styles.option} onClick={onMenuPopupToggle}>
-          <Link href="/history" className={styles.option}>
+          <Link href="/dashboard" className={styles.option}>
             Mis Gastos
           </Link>
         </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import "../src/styles/globals.scss";
 import auth from "../src/utils/firebaseConfig";
+import { UserProvider } from "../src/context/user";
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null);
@@ -18,7 +19,11 @@ function MyApp({ Component, pageProps }) {
     return unsubscribe;
   }, []);
 
-  return <Component {...pageProps} user={user} />;
+  return (
+    <UserProvider>
+      <Component {...pageProps} user={user} />
+    </UserProvider>
+  );
 }
 
 export default MyApp;

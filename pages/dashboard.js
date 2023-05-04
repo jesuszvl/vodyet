@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import useSWR from "swr";
 
 import { API_BASE_URL } from "../config/api";
 import auth from "../src/utils/firebaseConfig";
 
-import History from "../src/components/History/History";
-import styles from "../src/styles/History.module.scss";
-import ActionButton from "../src/components/ActionButton/ActionButton";
 import Wrapper from "../src/components/Wrapper/Wrapper";
-import { useRouter } from "next/router";
+import History from "../src/components/History/History";
+import DashboardOptions from "../src/components/DashboardOptions/DashboardOptions";
+import styles from "../src/styles/Dashboard.module.scss";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -46,7 +46,9 @@ export default function Home() {
       }}
     >
       <div className={styles.content}>
-        {data && <History historyData={data.expenses} />}
+        <div className={styles.history}>
+          {data && <History historyData={data.expenses} />}
+        </div>
       </div>
     </Wrapper>
   );

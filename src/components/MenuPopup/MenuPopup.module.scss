@@ -1,3 +1,5 @@
+@import "../../styles/colors.constants";
+
 .menu-popup-container {
   width: 200px;
   display: flex;
@@ -5,7 +7,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #14a180;
+  background-color: $pink-color;
   padding: 16px;
   animation-name: menu-popup;
   animation-duration: 0.2s;

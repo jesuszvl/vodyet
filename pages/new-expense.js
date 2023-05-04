@@ -43,7 +43,7 @@ export default function NewExpense() {
       },
       body: JSON.stringify(expenseData),
     });
-    router.push("/history");
+    router.push("/dashboard");
   };
 
   const updateExpenseCategory = (optionValue) => {

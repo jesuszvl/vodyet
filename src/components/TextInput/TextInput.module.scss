@@ -12,16 +12,16 @@
 
 .label {
   color: black;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 38px;
 }
 
 .input-container {
   display: flex;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid hsl(0, 0%, 80%);
   box-sizing: border-box;
-  border-radius: 8px;
+  border-radius: 4px;
   background: $background-color;
 }
 
@@ -33,10 +33,9 @@
   flex: 1 0 auto;
   flex-shrink: inherit;
   min-width: 0;
-  height: 40px;
-  padding: 8px 16px;
-  font-size: 22px;
+  padding: 8px;
+  font-size: 16px;
   background: white;
   border-radius: 8px;
-  text-align: center;
+  font-family: "Instagram Sans Condensed", sans-serif;
 }

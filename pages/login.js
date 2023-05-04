@@ -35,7 +35,7 @@ export default function Login() {
         password
       );
       const user = userCredential.user;
-      router.push("/history");
+      router.push("/dashboard");
     } catch (error) {
       console.log(error);
     }

@@ -6,15 +6,15 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  height: 60px;
+  height: 80px;
   border-bottom: 1px solid black;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .icon {
-  height: 44px;
-  width: 44px;
+  height: 54px;
+  width: 54px;
   border-radius: 44px;
   border: 1px solid black;
 
@@ -51,7 +51,7 @@
 }
 
 .description {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
 
   color: #1e1e1e;
@@ -59,7 +59,7 @@
 }
 
 .ammount {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
 
   color: #1e1e1e;

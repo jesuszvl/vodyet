@@ -1,0 +1,33 @@
+@import "breakpoints";
+@import "colors.constants";
+
+.content {
+  background-color: $background-color;
+  flex: 1;
+  overflow: auto;
+  padding-bottom: 77px;
+  display: flex;
+  flex-direction: column;
+
+  @include device_lg {
+    flex-direction: row;
+  }
+}
+
+.loading {
+  text-align: center;
+}
+
+.dashboard {
+  width: 100%;
+
+  @include device_lg {
+    width: 350px;
+  }
+
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2);
+}
+
+.history {
+  width: 100%;
+}
