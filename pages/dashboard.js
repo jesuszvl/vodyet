@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { MutatingDots } from "react-loader-spinner";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
@@ -35,7 +36,22 @@ export default function Home() {
 
   const isUserLoggedIn = userId !== null;
 
-  if (!data) return <p>Loading...</p>;
+  if (!data)
+    return (
+      <div className={styles.spinner}>
+        <MutatingDots
+          height="100"
+          width="100"
+          color="#0e7059"
+          secondaryColor="#0e7059"
+          radius="12.5"
+          ariaLabel="mutating-dots-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+    );
 
   return (
     <Wrapper
