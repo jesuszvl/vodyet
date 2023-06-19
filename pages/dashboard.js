@@ -1,15 +1,14 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { MutatingDots } from "react-loader-spinner";
-import { useRouter } from "next/router";
 import useSWR from "swr";
 
 import { API_BASE_URL } from "../config/api";
-import auth from "../src/utils/firebaseConfig";
-
-import Wrapper from "../src/components/Wrapper/Wrapper";
 import History from "../src/components/History/History";
-import DashboardOptions from "../src/components/DashboardOptions/DashboardOptions";
+import Wrapper from "../src/components/Wrapper/Wrapper";
 import styles from "../src/styles/Dashboard.module.scss";
+import { trackPageView } from "../src/utils/analytics";
+import auth from "../src/utils/firebaseConfig";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -33,6 +32,11 @@ export default function Home() {
 
     return unsubscribe;
   }, [router]);
+
+  // Tracking Page View
+  useEffect(() => {
+    trackPageView("/dashboard");
+  }, []);
 
   const isUserLoggedIn = userId !== null;
 

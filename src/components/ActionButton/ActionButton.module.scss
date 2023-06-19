@@ -5,18 +5,20 @@
   display: flex;
   text-align: center;
   background-color: none;
+  padding-top: 8px;
 }
 
 .button {
   all: unset;
   color: white;
   background-color: $button-color;
-  padding: 10px 16px;
+  padding: 12px 24px;
   text-align: center;
 
-  height: 25px;
+  border-radius: 8px;
+
   cursor: pointer;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 900;
 
   &.pink {

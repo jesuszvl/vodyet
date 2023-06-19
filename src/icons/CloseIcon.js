@@ -3,7 +3,7 @@ import React from "react";
 export default function CloseIcon({
   width = 32,
   height = 32,
-  stroke = "#14a180",
+  stroke = "#ffffff",
 }) {
   return (
     <svg

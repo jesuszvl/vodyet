@@ -18,6 +18,9 @@
   cursor: pointer;
   font-size: 20px;
   font-weight: 900;
+  &.pink {
+    background-color: $pink-color;
+  }
 }
 
 .button:hover {

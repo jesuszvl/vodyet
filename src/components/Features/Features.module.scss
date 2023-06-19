@@ -2,10 +2,11 @@
 @import "../../styles/colors.constants";
 
 .features-container {
-  padding: 24px 16px;
+  background-color: $main-white;
+  padding: 32px 16px;
 
   @include device_md {
-    padding: 24px 32px;
+    padding: 42px 72px;
   }
 }
 
@@ -14,12 +15,15 @@
   margin: 0px;
   padding-bottom: 24px;
   text-align: center;
+  font-weight: 900;
 }
 
 .features-grid {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding-top: 24px;
+  width: 100%;
 
   @include device_md {
     flex-direction: row;
@@ -34,7 +38,9 @@
 }
 
 .feature {
-  width: 100%;
+  border: 2px solid $main-green;
+  border-radius: 8px;
+  padding: 16px;
 
   @include device_md {
     width: 33.3%;
@@ -46,5 +52,7 @@
 
   .description {
     font-size: 18px;
+    text-align: justify;
+    text-justify: auto;
   }
 }

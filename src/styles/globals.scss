@@ -3,11 +3,14 @@
 body {
   margin: 0px;
   padding: 0px;
-  background-color: $background-color;
-  font-family: "Instagram Sans Condensed", sans-serif;
+  background-color: $main-green;
 }
 
 a {
+  text-decoration: none !important;
+}
+
+a:-webkit-any-link {
   text-decoration: none;
-  color: black;
+  color: inherit;
 }

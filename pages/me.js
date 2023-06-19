@@ -1,44 +1,51 @@
-import { useState, useEffect } from "react";
-import auth from "../src/utils/firebaseConfig";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
+import PageContainer from "../src/components/PageContainer/PageContainer";
 import styles from "../src/styles/Index.module.scss";
-import Wrapper from "../src/components/Wrapper/Wrapper";
+import { supabaseClient } from "../src/supabase/client";
+import { trackPageView } from "../src/utils/analytics";
 
 function Me() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [userEmail, setUserEmail] = useState("");
-
+  const [user, setUser] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const fetchSessionUser = async () => {
+      const { data, error } = await supabaseClient.auth.getSession();
+      const user = data?.session?.user;
       if (user) {
-        setUserEmail(user.email);
-        setLoggedIn(true);
+        setUser(user);
       } else {
-        setLoggedIn(false);
-        router.push("/");
+        router.push("/login");
       }
-    });
+    };
 
-    return unsubscribe;
+    fetchSessionUser();
   }, [router]);
 
-  const renderMePage = () => {
-    return loggedIn ? <div>{userEmail}</div> : null;
+  // Tracking Page View
+  useEffect(() => {
+    trackPageView("/me");
+  }, []);
+
+  const handleSignOut = async () => {
+    const { error } = await supabaseClient.auth.signOut();
+    router.push("/login");
   };
 
   return (
-    <Wrapper
-      showMenu
-      isUserLoggedIn={loggedIn}
-      onUserLogout={() => {
-        auth.signOut();
-      }}
-    >
-      <div className={styles.content}>{renderMePage()}</div>
-    </Wrapper>
+    <PageContainer title="VODYET | Mi Cuenta">
+      <div className={styles.content}>
+        <h2>Mi Cuenta</h2>
+        {user && (
+          <>
+            <p>Email: {user.email}</p>
+            <button onClick={() => handleSignOut()}>Cerrar Sesion</button>
+          </>
+        )}
+      </div>
+    </PageContainer>
   );
 }
 

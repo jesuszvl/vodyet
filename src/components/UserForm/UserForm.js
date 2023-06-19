@@ -1,7 +1,8 @@
 import React from "react";
-import styles from "./UserForm.module.scss";
-import TextInput from "../TextInput/TextInput";
+
 import BaseButton from "../BaseButton/BaseButton";
+import TextInput from "../TextInput/TextInput";
+import styles from "./UserForm.module.scss";
 
 export default function UserForm({
   title,
@@ -10,8 +11,6 @@ export default function UserForm({
   submitText,
   email,
   setEmail,
-  password,
-  setPassword,
 }) {
   return (
     <div className={styles["user-form-wrapper"]}>
@@ -28,14 +27,8 @@ export default function UserForm({
               value={email}
               onChange={(event) => setEmail(event.target.value)}
             />
-            <TextInput
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
           </div>
-          <BaseButton text={submitText} type="submit" />
+          <BaseButton text={submitText} type="submit" isPink />
         </form>
       </div>
     </div>

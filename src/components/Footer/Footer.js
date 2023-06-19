@@ -1,6 +1,6 @@
 import styles from "./Footer.module.scss";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <div className={styles["footer-container"]}>
       <div className={styles["footer"]}>
@@ -13,4 +13,6 @@ export default function Footer() {
       </div>
     </div>
   );
-}
+};
+
+export default Footer;

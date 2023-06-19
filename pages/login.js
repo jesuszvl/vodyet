@@ -1,66 +1,61 @@
-import { useState, useEffect } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import auth from "../src/utils/firebaseConfig";
-
 import { useRouter } from "next/router";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 
-import Wrapper from "../src/components/Wrapper/Wrapper";
+import PageContainer from "../src/components/PageContainer/PageContainer";
 import UserForm from "../src/components/UserForm/UserForm";
-
 import styles from "../src/styles/Index.module.scss";
+import { supabaseClient } from "../src/supabase/client";
+import { trackPageView } from "../src/utils/analytics";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   const router = useRouter();
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const fetchSessionUser = async () => {
+      const {
+        data: { user },
+      } = await supabaseClient.auth.getUser();
       if (user) {
         router.push("/me");
       }
-    });
+    };
 
-    return unsubscribe;
+    fetchSessionUser();
   }, [router]);
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
+  // Tracking Page View
+  useEffect(() => {
+    trackPageView("/login");
+  }, []);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
+      const result = await supabaseClient.auth.signInWithOtp({
         email,
-        password
-      );
-      const user = userCredential.user;
-      router.push("/dashboard");
+        options: {
+          emailRedirectTo: "http://localhost:3000/me",
+        },
+      });
+      console.log(result);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   return (
-    <Wrapper>
+    <PageContainer title="VODYET | Iniciar Sesión">
       <div className={styles.content}>
         <UserForm
           title="Accede a tu cuenta"
-          subtitle="Ingresa tu correo electrónico y contraseña para continuar"
+          subtitle="Ingresa tu correo electrónico para continuar"
           handleSubmit={handleLogin}
           submitText={"Iniciar Sesión"}
           email={email}
           setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
         />
-        <span>
-          ¿No tienes cuenta?{" "}
-          <Link href={"/signup"}>
-            <b>¡Crea una hoy!</b>
-          </Link>
-        </span>
       </div>
-    </Wrapper>
+    </PageContainer>
   );
 }

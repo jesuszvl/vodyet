@@ -1,29 +1,26 @@
-import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
 import "../src/styles/globals.scss";
-import auth from "../src/utils/firebaseConfig";
-import { UserProvider } from "../src/context/user";
 
-function MyApp({ Component, pageProps }) {
-  const [user, setUser] = useState(null);
+import { Lato } from "next/font/google";
+import { useEffect } from "react";
 
+import { supabaseClient } from "../src/supabase/client";
+import { initializeAnalytics } from "../src/utils/analytics";
+
+const font = Lato({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+});
+
+initializeAnalytics();
+
+export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
-      if (authUser) {
-        setUser(authUser);
-      } else {
-        setUser(null);
-      }
-    });
-
-    return unsubscribe;
+    supabaseClient.auth.onAuthStateChange((event, session) => {});
   }, []);
 
   return (
-    <UserProvider>
-      <Component {...pageProps} user={user} />
-    </UserProvider>
+    <main className={font.className}>
+      <Component {...pageProps} />
+    </main>
   );
 }
-
-export default MyApp;
