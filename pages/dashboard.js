@@ -5,7 +5,9 @@ import useSWR from "swr";
 
 import { API_BASE_URL } from "../config/api";
 import History from "../src/components/History/History";
+import PageContainer from "../src/components/PageContainer/PageContainer";
 import Wrapper from "../src/components/Wrapper/Wrapper";
+import { useUserStore } from "../src/store/userStore";
 import styles from "../src/styles/Dashboard.module.scss";
 import { trackPageView } from "../src/utils/analytics";
 import auth from "../src/utils/firebaseConfig";
@@ -13,32 +15,19 @@ import auth from "../src/utils/firebaseConfig";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Home() {
-  const [userId, setUserId] = useState(null);
+  const router = useRouter();
+  const [userZus] = useUserStore((state) => [state.user]);
+  const [user, setUser] = useState(null);
   const { data, error } = useSWR(
-    userId ? API_BASE_URL + `/api/expenses?userId=${userId}` : null,
+    user ? API_BASE_URL + `/api/expenses?userId=${user.id}` : null,
     fetcher
   );
 
-  const router = useRouter();
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUserId(user.uid);
-      } else {
-        router.push("/");
-      }
-    });
-
-    return unsubscribe;
-  }, [router]);
-
   // Tracking Page View
   useEffect(() => {
+    setUser(userZus);
     trackPageView("/dashboard");
   }, []);
-
-  const isUserLoggedIn = userId !== null;
 
   if (!data)
     return (
@@ -46,8 +35,8 @@ export default function Home() {
         <MutatingDots
           height="100"
           width="100"
-          color="#0e7059"
-          secondaryColor="#0e7059"
+          color="#ffffff"
+          secondaryColor="#ffffff"
           radius="12.5"
           ariaLabel="mutating-dots-loading"
           wrapperStyle={{}}
@@ -57,19 +46,14 @@ export default function Home() {
       </div>
     );
 
+  console.log(user);
   return (
-    <Wrapper
-      showMenu
-      isUserLoggedIn={isUserLoggedIn}
-      onUserLogout={() => {
-        auth.signOut();
-      }}
-    >
+    <PageContainer title="VODYET | Mis Gastos">
       <div className={styles.content}>
         <div className={styles.history}>
           {data && <History historyData={data.expenses} />}
         </div>
       </div>
-    </Wrapper>
+    </PageContainer>
   );
 }
