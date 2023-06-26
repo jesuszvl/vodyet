@@ -1,8 +1,9 @@
 import { useState } from "react";
-import MenuPopup from "../MenuPopup/MenuPopup";
+
 import Footer from "../Footer/Footer";
-import styles from "./Wrapper.module.scss";
 import Header from "../Header/Header";
+import MenuPopup from "../MenuPopup/MenuPopup";
+import styles from "./Wrapper.module.scss";
 
 export default function Wrapper({
   children,

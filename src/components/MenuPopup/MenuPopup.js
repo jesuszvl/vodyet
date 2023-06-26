@@ -1,5 +1,6 @@
-import styles from "./MenuPopup.module.scss";
 import Link from "next/link";
+
+import styles from "./MenuPopup.module.scss";
 
 export default function MenuPopup({ onMenuPopupToggle, onUserLogout }) {
   return (
