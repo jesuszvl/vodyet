@@ -5,7 +5,7 @@ import Navbar from "../Navbar/Navbar";
 
 const PageContainer = ({ children, title }) => {
   return (
-    <div>
+    <div className="page">
       <Head>
         <title>{title}</title>
         <meta name="description" content="Vive sin pedos de varo"></meta>

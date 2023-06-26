@@ -52,7 +52,7 @@ const Navbar = () => {
   };
 
   return (
-    <>
+    <div className={styles["navbar-container"]}>
       <div className={styles.navbar}>
         <Link href="/">
           <span className={styles.company}>VODYET</span>
@@ -83,7 +83,7 @@ const Navbar = () => {
         </div>
       </div>
       {isMenuActive && renderDropdownMenu()}
-    </>
+    </div>
   );
 };
 

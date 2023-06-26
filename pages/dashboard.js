@@ -6,16 +6,13 @@ import useSWR from "swr";
 import { API_BASE_URL } from "../config/api";
 import History from "../src/components/History/History";
 import PageContainer from "../src/components/PageContainer/PageContainer";
-import Wrapper from "../src/components/Wrapper/Wrapper";
 import { useUserStore } from "../src/store/userStore";
 import styles from "../src/styles/Dashboard.module.scss";
 import { trackPageView } from "../src/utils/analytics";
-import auth from "../src/utils/firebaseConfig";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Home() {
-  const router = useRouter();
   const [userZus] = useUserStore((state) => [state.user]);
   const [user, setUser] = useState(null);
   const { data, error } = useSWR(
@@ -46,10 +43,13 @@ export default function Home() {
       </div>
     );
 
-  console.log(user);
   return (
     <PageContainer title="VODYET | Mis Gastos">
       <div className={styles.content}>
+        <div className={styles.controls}>
+          <button>Agregar Gasto</button>
+          <button>Agregar Gasto</button>
+        </div>
         <div className={styles.history}>
           {data && <History historyData={data.expenses} />}
         </div>

@@ -14,7 +14,7 @@ initializeAnalytics();
 export default function MyApp({ Component, pageProps }) {
   return (
     <main className={font.className}>
-      <Component {...pageProps} />
+      <Component className="content" {...pageProps} />
     </main>
   );
 }
