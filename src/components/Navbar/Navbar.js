@@ -11,7 +11,7 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
   const [isMenuActive, setIsMenuActive] = useState(false);
   const router = useRouter();
-  const menuOptions = [{ name: "Blog", href: "/blog" }];
+  const menuOptions = [{ name: "Iniciar Sesión", href: "/login" }];
 
   const trackLinkClick = (linkName) => {
     trackEvent("Menu", `Clicked ${linkName} option`);
@@ -52,7 +52,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className={styles["navbar-container"]}>
+    <>
       <div className={styles.navbar}>
         <Link href="/">
           <span className={styles.company}>VODYET</span>
@@ -83,7 +83,7 @@ const Navbar = () => {
         </div>
       </div>
       {isMenuActive && renderDropdownMenu()}
-    </div>
+    </>
   );
 };
 

@@ -1,19 +1,14 @@
 @import "../../styles/colors.constants";
 @import "../../styles/breakpoints";
 
-.navbar-container {
-}
-
 .navbar {
-  color: $main-white;
-  background-color: $main-green;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
 
   @include device_md {
-    padding: 16px 72px;
+    padding: 12px 64px 12px;
   }
 }
 
@@ -55,6 +50,7 @@
 }
 
 .dropdown-menu {
+  height: calc(100dvh - 60px);
   width: 100%;
   background-color: $main-pink;
   position: absolute;
