@@ -7,7 +7,6 @@ import CategorySelector from "../src/components/CategorySelector/CategorySelecto
 import TextInput from "../src/components/TextInput/TextInput";
 import Wrapper from "../src/components/Wrapper/Wrapper";
 import styles from "../src/styles/NewExpense.module.scss";
-import { trackPageView } from "../src/utils/analytics";
 import auth from "../src/utils/firebaseConfig";
 
 export default function NewExpense() {
@@ -54,8 +53,6 @@ export default function NewExpense() {
   };
 
   const isUserLoggedIn = expenseData?.userId !== null;
-
-  trackPageView("/new-expense");
 
   return (
     <Wrapper showMenu isUserLoggedIn={isUserLoggedIn}>
