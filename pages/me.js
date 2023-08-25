@@ -6,7 +6,6 @@ import PageContainer from "../src/components/PageContainer/PageContainer";
 import { useUserStore } from "../src/store/userStore";
 import styles from "../src/styles/Index.module.scss";
 import { supabaseClient } from "../src/supabase/client";
-import { trackPageView } from "../src/utils/analytics";
 
 function Me() {
   const router = useRouter();
@@ -25,7 +24,6 @@ function Me() {
       router.push("/login");
     }
     setUser(userZus);
-    trackPageView("/me");
   }, [userZus, setUser]);
 
   //Magic Link Login Side Effect

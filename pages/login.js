@@ -6,7 +6,6 @@ import UserForm from "../src/components/UserForm/UserForm";
 import { useUserStore } from "../src/store/userStore";
 import styles from "../src/styles/Index.module.scss";
 import { supabaseClient } from "../src/supabase/client";
-import { trackPageView } from "../src/utils/analytics";
 
 export default function Login() {
   const router = useRouter();
@@ -19,7 +18,6 @@ export default function Login() {
     if (user) {
       router.push("/me");
     }
-    trackPageView("/login");
   }, [user, router]);
 
   const handleLogin = async (e) => {

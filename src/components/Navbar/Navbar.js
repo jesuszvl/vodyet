@@ -4,7 +4,6 @@ import { useState } from "react";
 
 import CloseIcon from "../../icons/CloseIcon";
 import MenuIcon from "../../icons/MenuIcon";
-import { trackEvent } from "../../utils/analytics";
 import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
@@ -12,10 +11,6 @@ const Navbar = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const router = useRouter();
   const menuOptions = [{ name: "Iniciar Sesión", href: "/login" }];
-
-  const trackLinkClick = (linkName) => {
-    trackEvent("Menu", `Clicked ${linkName} option`);
-  };
 
   const handleSignOut = async () => {};
 
@@ -31,7 +26,6 @@ const Navbar = () => {
           <button
             className={styles["dropdown-menu-option"]}
             onClick={() => {
-              trackLinkClick("Cerrar Sesión");
               handleSignOut();
             }}
           >

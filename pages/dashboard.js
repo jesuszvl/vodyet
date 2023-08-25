@@ -8,7 +8,6 @@ import History from "../src/components/History/History";
 import PageContainer from "../src/components/PageContainer/PageContainer";
 import { useUserStore } from "../src/store/userStore";
 import styles from "../src/styles/Dashboard.module.scss";
-import { trackPageView } from "../src/utils/analytics";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -23,7 +22,6 @@ export default function Home() {
   // Tracking Page View
   useEffect(() => {
     setUser(userZus);
-    trackPageView("/dashboard");
   }, []);
 
   if (!data)
