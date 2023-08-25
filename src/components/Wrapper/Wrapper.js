@@ -1,10 +1,9 @@
 import { useState } from "react";
 
-import HeadTag from "../HeadTag/HeadTag";
-import MenuPopup from "../MenuPopup/MenuPopup";
 import Footer from "../Footer/Footer";
-import styles from "./Wrapper.module.scss";
 import Header from "../Header/Header";
+import MenuPopup from "../MenuPopup/MenuPopup";
+import styles from "./Wrapper.module.scss";
 
 export default function Wrapper({
   children,
@@ -20,7 +19,6 @@ export default function Wrapper({
 
   return (
     <div className={styles.wrapper}>
-      <HeadTag />
       <Header
         showActionButton={showActionButton}
         showMenu={showMenu}

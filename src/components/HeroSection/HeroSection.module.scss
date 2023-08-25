@@ -2,32 +2,33 @@
 @import "../../styles/colors.constants";
 
 .hero-container {
+  background-color: $main-color;
   display: flex;
   flex-direction: column;
-
-  height: 280px;
-  padding: 16px;
-
-  background-image: url("hero.jpg");
-  background-position: center;
-  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 16px;
 
   @include device_md {
-    height: 300px;
-    padding: 24px;
-  }
-
-  @include device_lg {
-    height: 380px;
-    padding: 32px;
+    flex-direction: row;
+    padding: 72px;
+    gap: 64px;
   }
 }
 
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .hero-title {
-  font-size: 42px;
-  margin: 0px;
+  font-size: 36px;
   color: white;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.65);
+  margin: 0px;
 
   @include device_md {
     font-size: 56px;
@@ -35,16 +36,10 @@
 }
 
 .hero-subtitle {
-  font-size: 24px;
-  color: white;
+  font-size: 18px;
+  padding: 16px 0px;
+  color: $main-white;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.65);
-
-  @include device_md {
-    font-size: 32px;
-  }
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
-
-.hero-button {
+  text-align: justify;
+  text-justify: auto;
 }

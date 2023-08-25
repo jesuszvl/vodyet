@@ -1,66 +1,68 @@
-import { useState, useEffect } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import auth from "../src/utils/firebaseConfig";
-
 import { useRouter } from "next/router";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 
-import Wrapper from "../src/components/Wrapper/Wrapper";
+import PageContainer from "../src/components/PageContainer/PageContainer";
 import UserForm from "../src/components/UserForm/UserForm";
-
+import { useUserStore } from "../src/store/userStore";
 import styles from "../src/styles/Index.module.scss";
+import { supabaseClient } from "../src/supabase/client";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [magicLinkSent, setMagicLinkSent] = useState(false);
+  const [user, setUser] = useUserStore((state) => [state.user, state.setUser]);
 
+  // Tracking Page View
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        router.push("/me");
-      }
-    });
+    if (user) {
+      router.push("/me");
+    }
+  }, [user, router]);
 
-    return unsubscribe;
-  }, [router]);
-
-  const handleLogin = async (event) => {
-    event.preventDefault();
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
+      const result = await supabaseClient.auth.signInWithOtp({
         email,
-        password
-      );
-      const user = userCredential.user;
-      router.push("/dashboard");
+        options: {
+          emailRedirectTo: "http://localhost:3000/me",
+        },
+      });
+      setMagicLinkSent(true);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
+  const renderMagicLinkMessage = () => {
+    return (
+      <>
+        <h2>Revisa tu correo</h2>
+        <p>
+          Hemos enviado un correo electrónico a <b>{email}</b> con un enlace
+          para iniciar sesión.
+        </p>
+      </>
+    );
+  };
+
   return (
-    <Wrapper>
+    <PageContainer title="VODYET | Iniciar Sesión">
       <div className={styles.content}>
-        <UserForm
-          title="Accede a tu cuenta"
-          subtitle="Ingresa tu correo electrónico y contraseña para continuar"
-          handleSubmit={handleLogin}
-          submitText={"Iniciar Sesión"}
-          email={email}
-          setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
-        />
-        <span>
-          ¿No tienes cuenta?{" "}
-          <Link href={"/signup"}>
-            <b>¡Crea una hoy!</b>
-          </Link>
-        </span>
+        {magicLinkSent ? (
+          renderMagicLinkMessage()
+        ) : (
+          <UserForm
+            title="Accede a tu cuenta"
+            subtitle="Ingresa tu correo electrónico para continuar"
+            handleSubmit={handleLogin}
+            submitText={"Iniciar Sesión"}
+            email={email}
+            setEmail={setEmail}
+          />
+        )}
       </div>
-    </Wrapper>
+    </PageContainer>
   );
 }

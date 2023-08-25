@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 import { API_BASE_URL } from "../config/api";
-import auth from "../src/utils/firebaseConfig";
-
-import styles from "../src/styles/NewExpense.module.scss";
 import BaseButton from "../src/components/BaseButton/BaseButton";
+import CategorySelector from "../src/components/CategorySelector/CategorySelector";
 import TextInput from "../src/components/TextInput/TextInput";
 import Wrapper from "../src/components/Wrapper/Wrapper";
-import CategorySelector from "../src/components/CategorySelector/CategorySelector";
+import styles from "../src/styles/NewExpense.module.scss";
+import auth from "../src/utils/firebaseConfig";
 
 export default function NewExpense() {
   const [expenseData, setExpenseData] = useState({

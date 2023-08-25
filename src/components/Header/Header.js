@@ -1,8 +1,9 @@
 import Link from "next/link";
-import MenuIcon from "../../icons/MenuIcon";
-import styles from "./Header.module.scss";
-import ActionButton from "../ActionButton/ActionButton";
+
 import CloseIcon from "../../icons/CloseIcon";
+import MenuIcon from "../../icons/MenuIcon";
+import ActionButton from "../ActionButton/ActionButton";
+import styles from "./Header.module.scss";
 
 export default function Header({
   showActionButton,

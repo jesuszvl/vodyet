@@ -1,11 +1,12 @@
-import styles from "./Record.module.scss";
 import classNames from "classnames";
-import HouseIcon from "../../icons/HouseIcon";
-import FoodIcon from "../../icons/FoodIcon";
-import CarIcon from "../../icons/CarIcon";
+
 import BankIcon from "../../icons/BankIcon";
 import BulbIcon from "../../icons/BulbIcon";
+import CarIcon from "../../icons/CarIcon";
+import FoodIcon from "../../icons/FoodIcon";
 import GiftIcon from "../../icons/GiftIcon";
+import HouseIcon from "../../icons/HouseIcon";
+import styles from "./Record.module.scss";
 
 export default function Record({ description, ammount, date, category }) {
   const renderIcon = () => {

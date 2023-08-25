@@ -1,29 +1,18 @@
-import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
 import "../src/styles/globals.scss";
-import auth from "../src/utils/firebaseConfig";
-import { UserProvider } from "../src/context/user";
 
-function MyApp({ Component, pageProps }) {
-  const [user, setUser] = useState(null);
+import { Analytics } from "@vercel/analytics/react";
+import { Lato } from "next/font/google";
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
-      if (authUser) {
-        setUser(authUser);
-      } else {
-        setUser(null);
-      }
-    });
+const font = Lato({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+});
 
-    return unsubscribe;
-  }, []);
-
+export default function MyApp({ Component, pageProps }) {
   return (
-    <UserProvider>
-      <Component {...pageProps} user={user} />
-    </UserProvider>
+    <main className={font.className}>
+      <Component className="content" {...pageProps} />
+      <Analytics />
+    </main>
   );
 }
-
-export default MyApp;
