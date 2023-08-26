@@ -15,7 +15,6 @@ const Navbar = () => {
   const handleSignOut = async () => {};
 
   const handleOptionClick = (option) => {
-    trackLinkClick(option.name);
     router.push(option.href);
   };
 
@@ -69,7 +68,6 @@ const Navbar = () => {
         <div
           className={styles["menu-icon"]}
           onClick={() => {
-            trackLinkClick("Menu");
             setIsMenuActive(!isMenuActive);
           }}
         >
